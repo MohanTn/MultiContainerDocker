@@ -9,10 +9,10 @@ script:
   - docker run -e CI=true mohantn/react-test npm test
 
 after_success:
-  - docker build -t mohantn/multi-client -f ./client
-  - docker build -t mohantn/multi-nginx -f ./nginx
-  - docker build -t mohantn/multi-server -f ./server
-  - docker build -t mohantn/multi-worker -f ./worker
+  - docker build -t mohantn/multi-client ./client
+  - docker build -t mohantn/multi-nginx ./nginx
+  - docker build -t mohantn/multi-server ./server
+  - docker build -t mohantn/multi-worker ./worker
 
   # Take those images to DockerHub
   # Docker login
