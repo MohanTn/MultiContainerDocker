@@ -9,16 +9,16 @@ script:
   - docker run MohanTn/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t MohanTn/multi-client -f ./client
-  - docker build -t MohanTn/multi-nginx -f ./nginx
-  - docker build -t MohanTn/multi-server -f ./server
-  - docker build -t MohanTn/multi-worker -f ./worker
+  - docker build -t mohantn/multi-client -f ./client
+  - docker build -t mohantn/multi-nginx -f ./nginx
+  - docker build -t mohantn/multi-server -f ./server
+  - docker build -t mohantn/multi-worker -f ./worker
 
   # Take those images to DockerHub
   # Docker login
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push MohanTn/multi-client
-  - docker push MohanTn/multi-nginx
-  - docker push MohanTn/multi-server
-  - docker push MohanTn/multi-worker
+  - docker push mohantn/multi-client
+  - docker push mohantn/multi-nginx
+  - docker push mohantn/multi-server
+  - docker push mohantn/multi-worker
 
