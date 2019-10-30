@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker build -t MohanTn/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t mohantn/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run MohanTn/react-test npm test -- --coverage
+  - docker run mohantn/react-test npm test -- --coverage
 
 after_success:
   - docker build -t mohantn/multi-client -f ./client
